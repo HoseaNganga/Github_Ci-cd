@@ -7,7 +7,7 @@ on:
 
 jobs:
   True-Conditional:
-    if: github.repository== 'HoseaNganga/github'
+    if: github.repository== 'HoseaNganga/Github_Ci-cd'
     runs-on: ubuntu-latest
     steps:
       - name: Confirm True Repository Name
