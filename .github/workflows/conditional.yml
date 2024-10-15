@@ -1,0 +1,20 @@
+name: Conditonal Workflow Trigger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  True-Conditional:
+    if: github.repository== 'HoseaNganga/github'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm True Repository Name
+        run: echo "Correct Repository"
+
+  False-Conditional:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm False Repository Name
+        run: echo "Wrong Repository"
