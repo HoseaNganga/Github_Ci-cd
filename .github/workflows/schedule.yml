@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Current Time
-        run: echo "The Current Server time is ${date}"
+        run: echo "The Current Server time is $(date)"
