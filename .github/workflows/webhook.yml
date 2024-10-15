@@ -1,0 +1,16 @@
+name: WebHook Event Trigger
+
+on:
+  repository_dispatch:
+    types:
+      - webhook
+
+jobs:
+  respond-to-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Run a Script
+        run: |
+          echo "Event Type Of: $GITHUB_EVENT_NAME"
