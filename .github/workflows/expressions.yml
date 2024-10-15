@@ -1,0 +1,37 @@
+name: Expression triggers Workflow
+
+on:
+  push:
+    branches:
+      - main
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  Execute-Expression-Triggers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if string contains substring
+        if: contains("Hello World","llo")
+        run: echo "The string contains the substring"
+      - name: Check if string startsWith
+        if: startsWith("Hello World","He")
+        run: echo "The string startsWith the 'He'"
+      - name: Check if string endsWith
+        if: endsWith("Hello World","ld")
+        run: echo "The string endsWith the 'ld'"
+      - name: Format string
+        if: format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
+        run: echo "The string should output 'Hello Mona the Octocat'."
+      - name: Join Array into String
+        if: join(github.event.issue.labels.*.name, ', ')
+        run: echo "The string should output 'bug,help wanted'."
+      - name: Convert job to pretty-json format
+        run: echo "The Json format will be ${{toJSON(job)}}."
+      - name: Parse Json String
+        run: echo "The parsed Json String  will be ${{fromJSON({"Hello":"World"})}}."
+      - name: Hash Files
+        run: echo "Hashed Files ${{hashFiles('**/package-lock.json', '**/Gemfile.lock')}}"
+      - name: The job has succeeded
+        if: ${{ success() }}
+        run: echo "The steps have been successfully completed"
