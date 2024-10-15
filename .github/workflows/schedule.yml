@@ -2,7 +2,7 @@ name: Schedule Cron Expression
 
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "*/3 * * * *"
 jobs:
   hello_world:
     runs-on: ubuntu-latest
