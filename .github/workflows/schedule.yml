@@ -1,6 +1,7 @@
 name: Schedule Cron Expression
 
 on:
+  push:
   schedule:
     - cron: "*/3 * * * *"
 jobs:
