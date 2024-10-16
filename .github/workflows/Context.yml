@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Get Context
         run: |
-          echo "GithubContext : $GITHUB_CONTEXT"
+          echo "GithubContext : ${{ github.action }}"
