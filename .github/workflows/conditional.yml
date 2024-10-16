@@ -1,0 +1,16 @@
+name: Conditional Workflow Add
+
+on:
+  push:
+    branches:
+      - main
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  HandleConditonalWorkflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if string contains substring
+        if: ${{ contains('Hello World', 'llo') }}
+        run: echo "String Contains substring"
