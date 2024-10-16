@@ -12,3 +12,4 @@ jobs:
       - name: Get Context
         run: |
           echo "GithubContext : ${{ github.action }}"
+          echo "GithubActor : ${{ github.actor }}"
