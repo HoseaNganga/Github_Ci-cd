@@ -1,0 +1,17 @@
+name: WorkFlow Commands
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  RunWorkFlowCommands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Group Logging
+        run: |
+          echo "::group::My Group Message"
+          echo "Msg 1"
+          echo "Msg2"
+          echo "::endgroup::"
