@@ -1,0 +1,14 @@
+name: Context WorkFlow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  GithubContext:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Context
+        run: |
+          echo "GithubContext : $GITHUB_CONTEXT"
