@@ -1,0 +1,17 @@
+name: Greet Contributor upon issue creation or pull request
+
+on:
+  pull_request:
+    branches:
+      - main
+  issues:
+    types: [opened, labeled]
+    branches:
+      - main
+
+jobs:
+  Print-On-pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Repository
+        uses: actions/first-interaction@v1
