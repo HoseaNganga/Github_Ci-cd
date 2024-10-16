@@ -6,8 +6,6 @@ on:
       - main
   issues:
     types: [opened, labeled]
-    branches:
-      - main
 
 jobs:
   Print-On-pull_request:
@@ -15,3 +13,7 @@ jobs:
     steps:
       - name: Run Repository
         uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "Thank you for opening an issue! We will look into it shortly."
+          pr-message: "Thank you for your pull request! We will review it soon."
