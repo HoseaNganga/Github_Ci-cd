@@ -1,0 +1,22 @@
+name: Dependent Jobs workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      username: ${{ steps.get-username.outputs.username }}
+    steps:
+      - name: Fetch UserName
+        id: get-username
+        run: echo "username=${{ github.actor }}" >> $GITHUB_ENV
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Show UserName
+        run: echo "Hello ${{ needs.job1.outputs.username }}"
