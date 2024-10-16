@@ -1,0 +1,16 @@
+name: Scheduled Event WorkFlow
+
+on:
+  push:
+    branches:
+      - main
+      - sub
+  schedule:
+    - cron: "*/3 * * * *"
+
+jobs:
+  DisplayScheduledEvent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Time Now
+        run: echo "The time now is $(date)"
